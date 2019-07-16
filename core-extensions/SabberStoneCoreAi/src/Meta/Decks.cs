@@ -462,5 +462,39 @@ namespace SabberStoneCoreAi.Meta
 			Cards.FromId("LOEA04_31b"),
 
 		};
+
+		public static List<Card> JadeDruidA => new List<Card>()
+		{
+			Cards.FromName("Jade Idol"),
+			Cards.FromName("Jade Idol"),
+			Cards.FromName("Lesser Jasper Spellstone"),
+			Cards.FromName("Lesser Jasper Spellstone"),
+			Cards.FromName("Wild Growth"),
+			Cards.FromName("Wild Growth"),
+			Cards.FromName("Wrath"),
+			Cards.FromName("Wrath"),
+			Cards.FromName("Jade Blossom"),
+			Cards.FromName("Jade Blossom"),
+			Cards.FromName("Fandral Staghelm"),
+			Cards.FromName("Ironwood Golem"),
+			Cards.FromName("Ironwood Golem"),
+			Cards.FromName("Oaken Summons"),
+			Cards.FromName("Oaken Summons"),
+			Cards.FromName("Swipe"),
+			Cards.FromName("Swipe"),
+			Cards.FromName("Nourish"),
+			Cards.FromName("Nourish"),
+			Cards.FromName("Jade Behemoth"),
+			Cards.FromName("Jade Behemoth"),
+			Cards.FromName("Spreading Plague"),
+			Cards.FromName("Spreading Plague"),
+			Cards.FromName("Malfurion the Pestilent"),
+			Cards.FromName("Ultimate Infestation"),
+			Cards.FromName("Ultimate Infestation"),
+			Cards.FromName("Arcane Tyrant"),
+			Cards.FromName("Arcane Tyrant"),
+			Cards.FromName("Aya Blackpaw"),
+			Cards.FromName("Kun the Forgotten King")
+		};
 	}
 }
