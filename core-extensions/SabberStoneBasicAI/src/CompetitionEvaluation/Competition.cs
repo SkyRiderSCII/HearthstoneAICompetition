@@ -134,10 +134,11 @@ namespace SabberStoneBasicAI.CompetitionEvaluation
 
 		public Agent(System.Type agentClass, string agentAuthor)
 		{
-			this.AgentClass = agentClass;
-			this.AgentAuthor = agentAuthor;
+			AgentClass = agentClass;
+			AgentAuthor = agentAuthor;
 		}
 	}
+
 	public struct EvaluationTask
 	{
 		public int game_number { get; private set; }
@@ -256,6 +257,7 @@ namespace SabberStoneBasicAI.CompetitionEvaluation
 		public void CreateTasks(int games_per_matchup = 10)
 		{
 			tasks = new ConcurrentQueue<EvaluationTask>();
+			double numberOfTasks = 0;
 
 			// process matchups equally to allow for a continuous evaluation until convergence
 			for (int nr_of_game = 0; nr_of_game < games_per_matchup; nr_of_game++)
@@ -263,6 +265,89 @@ namespace SabberStoneBasicAI.CompetitionEvaluation
 				for (int player_1 = 0; player_1 < results.GetLength(0); player_1++)
 				{
 					for (int player_2 = 0; player_2 < results.GetLength(1); player_2++)
+					{
+						if (player_1 == player_2)
+							continue;
+
+						for (int deck_1 = 0; deck_1 < results.GetLength(2); deck_1++)
+						{
+							for (int deck_2 = 0; deck_2 < results.GetLength(3); deck_2++)
+							{
+								if (results[player_1, player_2, deck_1, deck_2].GamesPlayed <= nr_of_game)
+								{
+									tasks.Enqueue(new EvaluationTask(nr_of_game, player_1, player_2, deck_1, deck_2));
+									numberOfTasks += 1;
+								}
+									
+							}
+						}
+					}
+				}
+			}
+
+			Console.WriteLine("Number of tasks: " + numberOfTasks);
+		}
+
+		public void CreateTasksBachelor(int games_per_matchup = 10)
+		{
+			tasks = new ConcurrentQueue<EvaluationTask>();
+			double numberOfTasks = 0;
+
+			// process matchups equally to allow for a continuous evaluation until convergence
+			for (int nr_of_game = 0; nr_of_game < games_per_matchup; nr_of_game++)
+			{
+				for (int player_1 = 0; player_1 < results.GetLength(0); player_1++)
+				{
+					for (int player_2 = 0; player_2 < results.GetLength(1); player_2++)
+					{
+						if (player_1 == player_2)
+						{
+							continue;
+						}
+						if (results[player_1, player_2, player_1, player_2].GamesPlayed <= nr_of_game)
+						{
+							tasks.Enqueue(new EvaluationTask(nr_of_game, player_1, player_2, player_1, player_2));
+							numberOfTasks += 1;
+						}
+					}
+				}
+			}
+
+			Console.WriteLine("Number of tasks: " + numberOfTasks);
+		}
+
+		public void CreateTasksProgrammingAssignment(int games_per_matchup = 10)
+		{
+			tasks = new ConcurrentQueue<EvaluationTask>();
+
+			// process matchups equally to allow for a continuous evaluation until convergence
+			for (int nr_of_game = 0; nr_of_game < games_per_matchup; nr_of_game++)
+			{
+				for (int player_1 = 0; player_1 < 1; player_1++)
+				{
+					for (int player_2 = 0; player_2 < results.GetLength(1); player_2++)
+					{
+						if (player_1 == player_2)
+							continue;
+
+						for (int deck_1 = 0; deck_1 < results.GetLength(2); deck_1++)
+						{
+							for (int deck_2 = 0; deck_2 < results.GetLength(3); deck_2++)
+							{
+								if (results[player_1, player_2, deck_1, deck_2].GamesPlayed <= nr_of_game)
+									tasks.Enqueue(new EvaluationTask(nr_of_game, player_1, player_2, deck_1, deck_2));
+							}
+						}
+					}
+				}
+			}
+
+			// process matchups equally to allow for a continuous evaluation until convergence
+			for (int nr_of_game = 0; nr_of_game < games_per_matchup; nr_of_game++)
+			{
+				for (int player_1 = 0; player_1 < results.GetLength(0); player_1++)
+				{
+					for (int player_2 = 0; player_2 < 1; player_2++)
 					{
 						if (player_1 == player_2)
 							continue;
