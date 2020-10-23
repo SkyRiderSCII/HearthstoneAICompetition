@@ -131,22 +131,21 @@ namespace SabberStoneBasicAI
 
 		public static void TestMasterTournament()
 		{
-			Agent[] agents = new Agent[15];
+			Agent[] agents = new Agent[14];
 			agents[0] = new Agent(typeof(PickleRick), "PickleRickHempelHeise");
 			agents[1] = new Agent(typeof(Jerry), "JerryHempelHeise");
 			agents[2] = new Agent(typeof(BetaStone2), "GreedStoneKnors");
 			agents[3] = new Agent(typeof(AllMe), "AllMeThoms");
 			agents[4] = new Agent(typeof(iWillBeatOpenAIFive), "BeatOpenAiThoms");
 			agents[5] = new Agent(typeof(LynamicDookaheadAgentV1Master), "LynamicDookaheadBohnhofGraeffe");
-			agents[6] = new Agent(typeof(MyTurnDeepLookaheadAgent), "DeepLookaheadBuetnerMurugan");
-			agents[7] = new Agent(typeof(MyTurnLookaheadBalancedAgent), "BalancedAgentBuetnerMurugan");
-			agents[8] = new Agent(typeof(GreedyLookaheadAgent), "GreedyLookaheadMudgalKumar");
-			agents[9] = new Agent(typeof(GreedyLookaheadAgent2), "GreedyLookahead2MudgalKumar");
-			agents[10] = new Agent(typeof(MyAgentJulian), "MyAgentLamprecht");
-			agents[11] = new Agent(typeof(AheadAgent), "AheadAgentTrachtMozheiko");
-			agents[12] = new Agent(typeof(BasicAgent), "BasicAgentTrachtMozheiko");
-			agents[13] = new Agent(typeof(MyAgentMiller), "MyAgentMiller");
-			agents[14] = new Agent(typeof(MyAgentMiller2), "MyAgent2Miller");
+			agents[6] = new Agent(typeof(MyTurnLookaheadBalancedAgent), "BalancedAgentBuetnerMurugan");
+			agents[7] = new Agent(typeof(GreedyLookaheadAgent), "GreedyLookaheadMudgalKumar");
+			agents[8] = new Agent(typeof(GreedyLookaheadAgent2), "GreedyLookahead2MudgalKumar");
+			agents[9] = new Agent(typeof(MyAgentJulian), "MyAgentLamprecht");
+			agents[10] = new Agent(typeof(AheadAgent), "AheadAgentTrachtMozheiko");
+			agents[11] = new Agent(typeof(BasicAgent), "BasicAgentTrachtMozheiko");
+			agents[12] = new Agent(typeof(MyAgentMiller), "MyAgentMiller");
+			agents[13] = new Agent(typeof(MyAgentMiller2), "MyAgent2Miller");
 
 
 			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[9];
@@ -172,19 +171,40 @@ namespace SabberStoneBasicAI
 		{
 			List<Tuple<AbstractAgent, string>> submissions = new List<Tuple<AbstractAgent, string>>();
 
-			//submissions.Add(new Tuple<AbstractAgent,string>(new MyAgentLiebchen(), "Liebchen"));
+			//bachelor
+			//submissions.Add(new Tuple<AbstractAgent, string>(new JoachimKnobi(), "KnobiStelter"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new DrunkenAggroWarriorAgent(), "DrunkenWarriorKiasBabel")); //out <--- 56000
+			//submissions.Add(new Tuple<AbstractAgent, string>(new DrunkenAggroWarriorAgent2(), "DrunkenWarrior2KiasBabel"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new Otto007Paladin(), "OttoPaladinSchmidtDierkes"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new Otto007Warrior(), "OttoWarriorSchmidtDierkes"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MAGEnt(), "MAGEntMann"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MAGEntLookahead(), "MAGELookaheadMann"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new ThreeTypeDynLooker(), "ThreeDynLookerSchotteKrebs"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new TreePala(), "TreePalaAlbrechtBerndt"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMohamed(), "MyAgentShaabanAbdelrazek"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMohamed2(), "MyAgent2ShaabanAbdelrazek"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new LynamicDookaheadAgentV1Bachelor(), "LynamicDookaheadBohnhofGraeffe"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new Tree_Search_Agent_Rick_Richter(), "TreeSearchRichter"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new Tree_Search_Agent_Rick_Richter_7_30(), "TreeSearch2Richter"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new CIsntSharpAgent(), "IsntSharpDoNamAlemann"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new ShroudedYmir(), "YmirHartwig"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MechaSMOrcAgent(), "MechaAgentPeters"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MechaSMOrcAgent2(), "MechaAgent2Peters"));
+
+			//master
+
+			//submissions.Add(new Tuple<AbstractAgent, string>(new PickleRick(), "PickleRickHempelHeise"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new Jerry(), "JerryHempelHeise"));
-			submissions.Add(new Tuple<AbstractAgent, string>(new BetaStone(), "BetaStoneKnors"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new BetaStone2(), "GreedStoneKnors"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new AllMe(), "AllMeThoms"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new iWillBeatOpenAIFive(), "BeatOpenAiThoms"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new LynamicDookaheadAgentV1Master(), "LynamicDookaheadBohnhofGraeffe"));
-			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnDeepLookaheadAgent(), "DeepLookaheadBuetnerMurugan"));
-			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnLookaheadBalancedAgent(), "BalancedAgentBuetnerMurugan"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnDeepLookaheadAgent(), "DeepLookaheadBuetnerMurugan")); <--- out   270000
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnLookaheadBalancedAgent(), "BalancedAgentBuetnerMurugan")); //<--- out   45000
 			//submissions.Add(new Tuple<AbstractAgent, string>(new GreedyLookaheadAgent(), "GreedyLookaheadMudgalKumar"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new GreedyLookaheadAgent2(), "GreedyLookahead2MudgalKumar"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentJulian(), "MyAgentLamprecht"));
-			//submissions.Add(new Tuple<AbstractAgent, string>(new AheadAgent(), "AheadAgentTrachtMozheiko"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new AheadAgent(), "AheadAgentTrachtMozheiko"));     //38000
 			//submissions.Add(new Tuple<AbstractAgent, string>(new BasicAgent(), "BasicAgentTrachtMozheiko"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMiller(), "MyAgentMiller"));
 			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMiller2(), "MyAgent2Miller"));
@@ -196,9 +216,9 @@ namespace SabberStoneBasicAI
 				var gameConfig = new GameConfig()
 				{
 					StartPlayer = 1,
-					Player1HeroClass = CardClass.SHAMAN,
+					Player1HeroClass = s.Item1.preferedHero,
 					Player2HeroClass = CardClass.SHAMAN,
-					Player1Deck = Decks.MidrangeJadeShaman,
+					Player1Deck = s.Item1.preferedDeck,
 					Player2Deck = Decks.MidrangeJadeShaman,
 					FillDecks = false,
 					Shuffle = true,
@@ -212,7 +232,7 @@ namespace SabberStoneBasicAI
 
 				Console.WriteLine("Simulate Games");
 				//gameHandler.PlayGame();
-				gameHandler.PlayGames(nr_of_games: 1, addResultToGameStats: true, debug: false);
+				gameHandler.PlayGames(nr_of_games: 100, addResultToGameStats: true, debug: false);
 				GameStats gameStats = gameHandler.getGameStats();
 
 				gameStats.printResults();

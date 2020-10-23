@@ -10,6 +10,7 @@ namespace SabberStoneBasicAI.PartialObservation
 	{
 		private int turns = 0;
 		private int turnsPlayerA = 0;
+		private int turnsPlayerB = 0;
 		private int nr_games = 0;
 		private int[] wins = new[] { 0, 0 };
 		private int draws = 0;
@@ -29,13 +30,15 @@ namespace SabberStoneBasicAI.PartialObservation
 			nr_games++;
 			turns += game.Turn;
 
-			if(game.Turn % 2 == 0)
+			if (game.Turn % 2 == 0)
 			{
-				turnsPlayerA += game.Turn / 2;
+				turnsPlayerB = game.Turn / 2;
+				turnsPlayerA = (game.Turn / 2);
 			}
 			else
 			{
-				turnsPlayerA += (game.Turn / 2) + 1;
+				turnsPlayerB = game.Turn / 2;
+				turnsPlayerA = (game.Turn / 2) + 1;
 			}
 
 			if (game.Player1.PlayState == PlayState.WON)
@@ -149,6 +152,14 @@ namespace SabberStoneBasicAI.PartialObservation
 			get
 			{
 				return this.turnsPlayerA;
+			}
+		}
+
+		public int Turns_Player_B
+		{
+			get
+			{
+				return this.turnsPlayerB;
 			}
 		}
 	}
