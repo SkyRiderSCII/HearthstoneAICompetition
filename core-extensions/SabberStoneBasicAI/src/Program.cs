@@ -67,8 +67,8 @@ namespace SabberStoneBasicAI
 			//RandomGames();
 			//TestPOGame();
 			//TestFullGames();
-			TestBachelorTournament();
-			//TestMasterTournament();
+			//TestBachelorTournament();
+			TestMasterTournament();
 
 			//setupMaster();
 			//setupBachelor();
@@ -80,8 +80,7 @@ namespace SabberStoneBasicAI
 
 		public static void TestBachelorTournament()
 		{
-			Agent[] agents = new Agent[18
-                ];
+			Agent[] agents = new Agent[18];
 			agents[0] = new Agent(typeof(JoachimKnobi), "KnobiStelter");
 			agents[1] = new Agent(typeof(DrunkenAggroWarriorAgent), "DrunkenWarriorKiasBabel");
 			agents[2] = new Agent(typeof(DrunkenAggroWarriorAgent2), "DrunkenWarrior2KiasBabel");
@@ -89,7 +88,6 @@ namespace SabberStoneBasicAI
 			agents[4] = new Agent(typeof(Otto007Warrior), "OttoWarriorSchmidtDierkes");
 			agents[5] = new Agent(typeof(MAGEnt), "MAGEntMann");
 			agents[6] = new Agent(typeof(MAGEntLookahead), "MAGELookaheadMann");
-			//agents[7] = new Agent(typeof(MyAgentLiebchen), "MyAgentLiebchen");
 			agents[7] = new Agent(typeof(ThreeTypeDynLooker), "ThreeDynLookerSchotteKrebs");
 			agents[8] = new Agent(typeof(TreePala), "TreePalaAlbrechtBerndt");
 			agents[9] = new Agent(typeof(MyAgentMohamed), "MyAgentShaabanAbdelrazek");
@@ -111,7 +109,6 @@ namespace SabberStoneBasicAI
 			decks[4] = new CompetitionEvaluation.Deck(Decks.AggroPirateWarrior, CardClass.WARRIOR, "Warrior");
 			decks[5] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage, CardClass.MAGE, "Mage");
 			decks[6] = new CompetitionEvaluation.Deck(Decks.RenoKazakusMage, CardClass.MAGE, "Mage");
-			//decks[7] = new CompetitionEvaluation.Deck(Decks.MidrangeJadeShaman, CardClass.SHAMAN, "Shaman");
 			decks[7] = new CompetitionEvaluation.Deck(Decks.MidrangeJadeShaman, CardClass.SHAMAN, "Shaman");
 			decks[8] = new CompetitionEvaluation.Deck(Decks.MidrangeBuffPaladin, CardClass.PALADIN, "Paladin");
 			decks[9] = new CompetitionEvaluation.Deck(Decks.RenoKazakusDragonPriest, CardClass.PRIEST, "Priest");
@@ -134,23 +131,22 @@ namespace SabberStoneBasicAI
 
 		public static void TestMasterTournament()
 		{
-			Agent[] agents = new Agent[4];
+			Agent[] agents = new Agent[15];
 			agents[0] = new Agent(typeof(PickleRick), "PickleRickHempelHeise");
 			agents[1] = new Agent(typeof(Jerry), "JerryHempelHeise");
-			agents[2] = new Agent(typeof(BetaStone), "BetaStoneKnors");
-			agents[3] = new Agent(typeof(BetaStone2), "GreedStoneKnors");
-			//agents[4] = new Agent(typeof(AllMe), "AllMeThoms");
-			//agents[5] = new Agent(typeof(iWillBeatOpenAIFive), "BeatOpenAiThoms");
-			//agents[6] = new Agent(typeof(LynamicDookaheadAgentV1Master), "LynamicDookaheadBohnhofGraeffe");
-			//agents[7] = new Agent(typeof(MyTurnDeepLookaheadAgent), "DeepLookaheadBuetnerMurugan");
-			//agents[8] = new Agent(typeof(MyTurnLookaheadBalancedAgent), "BalancedAgentBuetnerMurugan");
-			//agents[9] = new Agent(typeof(GreedyLookaheadAgent), "GreedyLookaheadMudgalKumar");
-			//agents[10] = new Agent(typeof(GreedyLookaheadAgent2), "GreedyLookahead2MudgalKumar");
-			//agents[11] = new Agent(typeof(MyAgentJulian), "MyAgentLamprecht");
-			//agents[12] = new Agent(typeof(AheadAgent), "AheadAgentTrachtMozheiko");
-			//agents[13] = new Agent(typeof(BasicAgent), "BasicAgentTrachtMozheiko");
-			//agents[14] = new Agent(typeof(MyAgentMiller), "MyAgentMiller");
-			//agents[15] = new Agent(typeof(MyAgentMiller2), "MyAgent2Miller");
+			agents[2] = new Agent(typeof(BetaStone2), "GreedStoneKnors");
+			agents[3] = new Agent(typeof(AllMe), "AllMeThoms");
+			agents[4] = new Agent(typeof(iWillBeatOpenAIFive), "BeatOpenAiThoms");
+			agents[5] = new Agent(typeof(LynamicDookaheadAgentV1Master), "LynamicDookaheadBohnhofGraeffe");
+			agents[6] = new Agent(typeof(MyTurnDeepLookaheadAgent), "DeepLookaheadBuetnerMurugan");
+			agents[7] = new Agent(typeof(MyTurnLookaheadBalancedAgent), "BalancedAgentBuetnerMurugan");
+			agents[8] = new Agent(typeof(GreedyLookaheadAgent), "GreedyLookaheadMudgalKumar");
+			agents[9] = new Agent(typeof(GreedyLookaheadAgent2), "GreedyLookahead2MudgalKumar");
+			agents[10] = new Agent(typeof(MyAgentJulian), "MyAgentLamprecht");
+			agents[11] = new Agent(typeof(AheadAgent), "AheadAgentTrachtMozheiko");
+			agents[12] = new Agent(typeof(BasicAgent), "BasicAgentTrachtMozheiko");
+			agents[13] = new Agent(typeof(MyAgentMiller), "MyAgentMiller");
+			agents[14] = new Agent(typeof(MyAgentMiller2), "MyAgent2Miller");
 
 
 			CompetitionEvaluation.Deck[] decks = new CompetitionEvaluation.Deck[9];
@@ -166,7 +162,7 @@ namespace SabberStoneBasicAI
 
 			RoundRobinCompetition competition = new RoundRobinCompetition(agents, decks, "InternalCompetitionMaster.txt");
 			competition.CreateTasks(100);
-			competition.startEvaluation(8);
+			competition.startEvaluation(60);
 
 			Console.WriteLine("Total Games Played: " + competition.GetTotalGamesPlayed());
 			competition.PrintAgentStats();
@@ -174,33 +170,86 @@ namespace SabberStoneBasicAI
 
 		public static void TestPOGame()
 		{
-			Console.WriteLine("Setup gameConfig");
-			
-			var gameConfig = new GameConfig()
+			List<Tuple<AbstractAgent, string>> submissions = new List<Tuple<AbstractAgent, string>>();
+
+			//submissions.Add(new Tuple<AbstractAgent,string>(new MyAgentLiebchen(), "Liebchen"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new Jerry(), "JerryHempelHeise"));
+			submissions.Add(new Tuple<AbstractAgent, string>(new BetaStone(), "BetaStoneKnors"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new BetaStone2(), "GreedStoneKnors"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new AllMe(), "AllMeThoms"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new iWillBeatOpenAIFive(), "BeatOpenAiThoms"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new LynamicDookaheadAgentV1Master(), "LynamicDookaheadBohnhofGraeffe"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnDeepLookaheadAgent(), "DeepLookaheadBuetnerMurugan"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyTurnLookaheadBalancedAgent(), "BalancedAgentBuetnerMurugan"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new GreedyLookaheadAgent(), "GreedyLookaheadMudgalKumar"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new GreedyLookaheadAgent2(), "GreedyLookahead2MudgalKumar"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentJulian(), "MyAgentLamprecht"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new AheadAgent(), "AheadAgentTrachtMozheiko"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new BasicAgent(), "BasicAgentTrachtMozheiko"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMiller(), "MyAgentMiller"));
+			//submissions.Add(new Tuple<AbstractAgent, string>(new MyAgentMiller2(), "MyAgent2Miller"));
+
+			foreach (Tuple<AbstractAgent,string> s in submissions)
 			{
-				StartPlayer = 1,
-				Player1HeroClass = CardClass.MAGE,
-				Player2HeroClass = CardClass.MAGE,
-				Player1Deck = Decks.RenoKazakusMage,
-				Player2Deck = Decks.RenoKazakusMage,
-				FillDecks = false,
-				Shuffle = true,
-				Logging = false
-			};
+				Console.WriteLine("Setup gameConfig");
 
-			Console.WriteLine("Setup POGameHandler");
-			AbstractAgent player1 = new GreedyAgent();
-			AbstractAgent player2 = new GreedyAgent();
-			var gameHandler = new POGameHandler(gameConfig, player1, player2, repeatDraws: false);
+				var gameConfig = new GameConfig()
+				{
+					StartPlayer = 1,
+					Player1HeroClass = CardClass.SHAMAN,
+					Player2HeroClass = CardClass.SHAMAN,
+					Player1Deck = Decks.MidrangeJadeShaman,
+					Player2Deck = Decks.MidrangeJadeShaman,
+					FillDecks = false,
+					Shuffle = true,
+					Logging = false
+				};
 
-			Console.WriteLine("Simulate Games");
-			//gameHandler.PlayGame();
-			gameHandler.PlayGames(nr_of_games: 1000, addResultToGameStats: true, debug: false);
-			GameStats gameStats = gameHandler.getGameStats();
+				Console.WriteLine("Setup POGameHandler");
+				AbstractAgent player1 = s.Item1;
+				AbstractAgent player2 = new GreedyAgent();
+				var gameHandler = new POGameHandler(gameConfig, player1, player2, repeatDraws: false);
 
-			gameStats.printResults();
+				Console.WriteLine("Simulate Games");
+				//gameHandler.PlayGame();
+				gameHandler.PlayGames(nr_of_games: 1, addResultToGameStats: true, debug: false);
+				GameStats gameStats = gameHandler.getGameStats();
 
-			Console.WriteLine("Test successful");
+				gameStats.printResults();
+
+				Console.WriteLine("\n"+"Average time per turn for "+s.Item2+": " + (gameStats.Time_Player_A / gameStats.Turns_Player_A));
+				Console.WriteLine("Test successful");
+			}
+
+			//Console.WriteLine("Setup gameConfig");
+			
+			//var gameConfig = new GameConfig()
+			//{
+			//	StartPlayer = 1,
+			//	Player1HeroClass = CardClass.SHAMAN,
+			//	Player2HeroClass = CardClass.SHAMAN,
+			//	Player1Deck = Decks.MidrangeJadeShaman,
+			//	Player2Deck = Decks.MidrangeJadeShaman,
+			//	FillDecks = false,
+			//	Shuffle = true,
+			//	Logging = false
+			//};
+
+			//Console.WriteLine("Setup POGameHandler");
+			//AbstractAgent player1 = new MyAgentLiebchen();
+			//AbstractAgent player2 = new HarderGreedyAgent();
+			//var gameHandler = new POGameHandler(gameConfig, player1, player2, repeatDraws: false);
+
+			//Console.WriteLine("Simulate Games");
+			////gameHandler.PlayGame();
+			//gameHandler.PlayGames(nr_of_games: 100, addResultToGameStats: true, debug: false);
+			//GameStats gameStats = gameHandler.getGameStats();
+
+			////gameStats.printResults();
+
+			//Console.WriteLine("Average time per turn for player A: " + (gameStats.Time_Player_A / gameStats.Turns_Player_A));
+
+			//Console.WriteLine("Test successful");
 			Console.ReadLine();
 		}
 

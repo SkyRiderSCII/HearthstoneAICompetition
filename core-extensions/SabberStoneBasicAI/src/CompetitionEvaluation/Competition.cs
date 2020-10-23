@@ -106,6 +106,36 @@ namespace SabberStoneBasicAI.CompetitionEvaluation
 			}
 		}
 
+		public void writeToFileWithTime(string resultfile, int idx_player_1, int idx_player_2, int idx_deck_1, int idx_deck_2, double time_player_1, double time_player_2)
+		{
+			if (!File.Exists(resultfile))
+			{
+				// Create a file to write to.
+				using (StreamWriter sw = File.CreateText(resultfile))
+				{
+				}
+			}
+
+			// try to write to the file. if another thread is currently writing to the file, wait a short time-span and try again
+			bool file_written = false;
+			while (file_written == false)
+			{
+				try
+				{
+					using (StreamWriter sw = File.AppendText(resultfile))
+					{
+						sw.WriteLine(String.Format("Match Result: {0} {1} {2} {3} {4} {5} {6} {7} {8} {9}", idx_player_1, idx_player_2, idx_deck_1, idx_deck_2,
+							WinsPlayer1, WinsPlayer2, ExceptionsPlayer1, ExceptionsPlayer2, time_player_1, time_player_2));
+					}
+					file_written = true;
+				}
+				catch (Exception e)
+				{
+					Thread.Sleep(10);
+				}
+			}
+		}
+
 		public override string ToString()
 		{
 			return String.Format("{0} {1} {2} {3}", WinsPlayer1, WinsPlayer2, ExceptionsPlayer1, ExceptionsPlayer2);
@@ -499,7 +529,7 @@ namespace SabberStoneBasicAI.CompetitionEvaluation
 
 			if (resultfile != null)
 				results[task.idx_player_1, task.idx_player_2, task.idx_deck_1, task.idx_deck_2].
-					writeToFile(resultfile, task.idx_player_1, task.idx_player_2, task.idx_deck_1, task.idx_deck_2);
+					writeToFileWithTime(resultfile, task.idx_player_1, task.idx_player_2, task.idx_deck_1, task.idx_deck_2, gameStats.Time_Player_A, gameStats.Time_Player_B);
 		}
 
 		public int GetTotalGamesPlayed()

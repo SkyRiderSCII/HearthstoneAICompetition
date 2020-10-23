@@ -5,6 +5,7 @@ using SabberStoneBasicAI.PartialObservation;
 using System.Linq;
 using System.Diagnostics;
 using SabberStoneCore.Model.Entities;
+using SabberStoneBasicAI.Meta;
 
 // TODO choose your own namespace by setting up <submission_tag>
 // each added file needs to use this namespace or a subnamespace of it
@@ -67,6 +68,12 @@ namespace SabberStoneBasicAI.AIAgents.manuelliebchen
 
 		int thinkcounter = 0;
 		int playerid = 0;
+
+		public MyAgentLiebchen()
+		{
+			preferedHero = SabberStoneCore.Enums.CardClass.SHAMAN;
+			preferedDeck = Decks.MidrangeJadeShaman;
+		}
 
 		public override PlayerTask GetMove(POGame game)
 		{

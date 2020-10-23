@@ -181,7 +181,7 @@ namespace SabberStoneBasicAI.AIAgents.BetaStone
 			Node rootNode = new Node(parentNode: null, gameState: new KeyValuePair<PlayerTask, POGame>(null, state));
 
 			// Do as long as we've got time
-			while (timer.ElapsedMilliseconds < 10000 && rootNode.N < numSimulations)
+			while (timer.Elapsed.TotalMilliseconds < 10000 && rootNode.N < numSimulations)
 			{
 
 				//Selection

@@ -66,6 +66,7 @@ namespace SabberStoneBasicAI.AIAgents.DepthFour_DefenceAgent
 
         public override void InitializeGame()
         {
+			
         }
         public override void InitializeAgent()
         {
