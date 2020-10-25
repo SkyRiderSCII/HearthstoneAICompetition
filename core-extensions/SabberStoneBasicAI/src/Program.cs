@@ -67,8 +67,8 @@ namespace SabberStoneBasicAI
 			//RandomGames();
 			//TestPOGame();
 			//TestFullGames();
-			//TestBachelorTournament();
-			TestMasterTournament();
+			TestBachelorTournament();
+			//TestMasterTournament();
 
 			//setupMaster();
 			//setupBachelor();
