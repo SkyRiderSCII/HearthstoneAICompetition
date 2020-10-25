@@ -59,7 +59,7 @@ namespace SabberStoneBasicAI
 		private static void Main()
 		{
 			Console.WriteLine("Starting test setup.");
-
+			
 			// TEST BASIC AI
 
 			//OneTurn();
@@ -72,9 +72,9 @@ namespace SabberStoneBasicAI
 
 			//setupMaster();
 			//setupBachelor();
-			
+				
 
-			Console.WriteLine("Test ended!");
+			Console.WriteLine("Test completely ended!");
 			Console.ReadLine();
 		}
 

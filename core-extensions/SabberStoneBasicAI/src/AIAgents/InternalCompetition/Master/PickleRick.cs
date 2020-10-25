@@ -200,7 +200,7 @@ namespace SabberStoneBasicAI.AIAgents.BotterThanYouThink
 				if (watch.ElapsedMilliseconds >  23 * 1000)
 				{
 #if DEBUG
-					Console.WriteLine("Time's almost over! Finish the turn! (" + watch.ElapsedMilliseconds + ")");
+					//Console.WriteLine("Time's almost over! Finish the turn! (" + watch.ElapsedMilliseconds + ")");
 #endif
 					return false;
 				}

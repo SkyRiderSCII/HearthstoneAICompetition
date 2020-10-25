@@ -44,7 +44,7 @@ namespace SabberStoneBasicAI.AIAgents.magic_number
 			{ // Time is running out, just simulate one timestep now
 				depth = 1;
 				beamWidth = 1;
-				Console.WriteLine("Over 30s in turn already. Pausing beam search for this turn!");
+				//Console.WriteLine("Over 30s in turn already. Pausing beam search for this turn!");
 			}
 
 			_watch.Start();
@@ -170,43 +170,43 @@ namespace SabberStoneBasicAI.AIAgents.magic_number
 			float discount = 0.98f;
 			float alpha = 0.00001f;
 			
-			Console.WriteLine("Gamestate: " + game.getGame().State);
-			Console.WriteLine("I am player " + _me.PlayerId);
-			Console.WriteLine("State of Player1:" + game.getGame().Player1.PlayState);
-			Console.WriteLine("State of Player2:" + game.getGame().Player2.PlayState);
-			Console.WriteLine("Won: " + won);
-			Console.WriteLine("Tied: " + tied);
-			Console.WriteLine("Max turns reached: " + maxTurnsReached);
+			//Console.WriteLine("Gamestate: " + game.getGame().State);
+			//Console.WriteLine("I am player " + _me.PlayerId);
+			//Console.WriteLine("State of Player1:" + game.getGame().Player1.PlayState);
+			//Console.WriteLine("State of Player2:" + game.getGame().Player2.PlayState);
+			//Console.WriteLine("Won: " + won);
+			//Console.WriteLine("Tied: " + tied);
+			//Console.WriteLine("Max turns reached: " + maxTurnsReached);
 
 			double reward = won ? 10 : -10;
 			reward = tied ? 0 : reward;
 			reward = maxTurnsReached ? -5 : reward;
 			
-			Console.WriteLine(reward);
+			//Console.WriteLine(reward);
 
 			var weights = new List<double>(MagicNumberScore.Factors);
 			
 			double total_squared_error = 0;
-			Console.WriteLine(_scores.Count);
+			//Console.WriteLine(_scores.Count);
 			for (int i = 1; i < _scores.Count; i++) {
 				var d_return = reward *  Math.Pow(discount, (_scores.Count() - i - 1));
 				double error = d_return - _scores[i];
-				Console.WriteLine("Error in turn " + i + ": " + Math.Pow(error, 2));
+				//Console.WriteLine("Error in turn " + i + ": " + Math.Pow(error, 2));
 				total_squared_error += Math.Pow(error, 2);
 				var fl = new List<double>(_features[i]).Zip(new List<double>(_features[i-1]), (a, b) => (a,b));
 				weights = weights.Zip(fl, (w, f) => (w + alpha * error * (f.b - f.a))).ToList();
 			}
-			Console.WriteLine("New Weights:");
+			//Console.WriteLine("New Weights:");
 			for (int i = 0; i < weights.Count(); i++) {
 				Console.Write($"{i}: {weights[i]}|");
 			}
 			MagicNumberScore.Factors = weights.ToArray();
-			Console.WriteLine("Normailized Weights:");
+			//Console.WriteLine("Normailized Weights:");
 			for (int i = 0; i < MagicNumberScore.Factors.Count(); i++) {
 				Console.Write($"{i}: {MagicNumberScore.Factors[i]}|");
 			}
-			Console.WriteLine("-------------");
-			Console.WriteLine("Total squared error this game: " + total_squared_error);
+			//Console.WriteLine("-------------");
+			//Console.WriteLine("Total squared error this game: " + total_squared_error);
 		}
 
 		public override void FinalizeAgent()

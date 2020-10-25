@@ -84,9 +84,9 @@ namespace SabberStoneBasicAI.AIAgents.BetaStone
 			}
 			if (myDebug)
 			{
-				Console.WriteLine();
-				Console.WriteLine(poGame.FullPrint());
-				Console.WriteLine("Chose action: " + action);
+				//Console.WriteLine();
+				//Console.WriteLine(poGame.FullPrint());
+				//Console.WriteLine("Chose action: " + action);
 			}
 			return action;
 		}

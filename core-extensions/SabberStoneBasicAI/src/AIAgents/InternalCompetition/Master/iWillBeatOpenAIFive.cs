@@ -106,8 +106,8 @@ namespace SabberStoneBasicAI.AIAgents.FrankenStein
 				ScoreDict.Add(task, ScoreDict2.OrderBy(x => x.Value).Last().Value);
 					
 			}
-			if(stopwatch.ElapsedMilliseconds>25000)
-				Console.WriteLine(stopwatch.ElapsedMilliseconds);
+			//if(stopwatch.ElapsedMilliseconds>25000)
+			//	Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
 
 			return simulation.Any() ?
